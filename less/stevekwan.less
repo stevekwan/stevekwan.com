@@ -1,0 +1,217 @@
+@import "lesshat.less";
+
+/*
+ * Variables
+ */
+@body-color: #888888;
+@header-color: @body-color;
+@content-color: #FFFFFF;
+@footer-color: @content-color;
+
+@body-bg: #FFFFFF;
+@header-bg: @body-bg;
+@content-bg: #000044;
+@footer-bg: #000022;
+
+@transitory-arrow-size: 100px;
+
+
+
+
+
+/*
+ * General
+ */
+html,
+body
+{
+  height: 100%;
+}
+
+h1
+{
+  line-height: 1.2em;
+}
+
+h2
+{
+  line-height: 1.3em;
+}
+
+body
+{
+  color: @body-color;
+  background-color: @body-bg;
+  font-family: 'Tauri', sans-serif;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ir
+{
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+
+
+/*
+ * Header
+ */
+#header
+{
+  color: @header-color;
+  background-color: @header-bg;
+  min-height: 100%;
+  top: 0;
+  position: relative;
+  .animation(~"fade-in 500ms ease-in 0s 1 both");
+
+  .fixed-region
+  {
+    position: fixed;
+    min-height: 100%;
+  }
+
+  .photo
+  {
+    border: lighten(@body-color, 30%) 1em solid;
+    margin-top: 1.5em;
+  }
+
+  .social
+  {
+    list-style-type: none;
+    padding-left: 0;
+
+    li
+    {
+      display: inline-block;
+    }
+
+    img
+    {
+      opacity: 0.6;
+      .transition(~"opacity 100ms ease-in");
+    }
+
+    img:hover
+    {
+      opacity: 1;
+    }
+  }
+
+}
+
+
+
+
+
+/*
+ * Content
+ */
+#content
+{
+  color: @content-color;
+  background-color: @content-bg;
+  min-height: 100%;
+  padding-bottom: @transitory-arrow-size;
+  position: relative;
+}
+
+
+
+
+
+/*
+ * Footer
+ */
+#footer
+{
+  color: @footer-color;
+  background-color: @footer-bg;
+  min-height: 100%;
+  position: relative;
+}
+
+
+
+
+
+/*
+ * Transitory arrows
+ */
+.transitory-arrow
+{
+  display: inline-block;
+  width: @transitory-arrow-size;
+  height: @transitory-arrow-size;
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  margin-left: -(@transitory-arrow-size/2);
+  opacity: 0.6;
+  .transition(~"opacity 100ms ease-in");
+}
+
+.transitory-arrow:hover
+{
+  opacity: 0.8;
+}
+
+.transitory-arrow.light
+{
+  background-image: url(../../images/down-arrow-white.png);
+}
+
+.transitory-arrow.dark
+{
+  background-image: url(../../images/down-arrow-gray.png);
+}
+
+
+
+
+
+/*
+ * Media query adjustments?  Refactor?
+ */
+@media (max-width: 767px)
+{
+  header,
+  section,
+  footer
+  {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+
+
+
+/*
+ * Keyframes.  When LESSHat supports keyframes these should be transitioned.
+ */
+
+@-webkit-keyframes fade-in {.fade-in-keyframes;}
+@-moz-keyframes    fade-in {.fade-in-keyframes;}
+@-ms-keyframes     fade-in {.fade-in-keyframes;}
+@-o-keyframes      fade-in {.fade-in-keyframes;}
+@keyframes         fade-in {.fade-in-keyframes;}
+
+.fade-in-keyframes ()
+{
+  from
+  {
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+  }
+}
