@@ -48,10 +48,14 @@ SteveKwan.handleScroll = function()
         var oldSelection = SteveKwan.currentSection;
         var beforeNewSelection = SteveKwan.sections.slice(0,index);
         var afterNewSelection = SteveKwan.sections.slice(index);
-        $(beforeNewSelection).children().fadeOut();
-        $(afterNewSelection).children().fadeIn();
+
         SteveKwan.currentSection = $(element);
 
+        $(afterNewSelection).children().animate({'opacity':1});
+
+        if (SteveKwan.isMobile()) return;
+
+        $(beforeNewSelection).children().animate({'opacity':0});
         $(oldSelection).trigger('SteveKwan.exitPanel');
         $(element).trigger('SteveKwan.enterPanel');
       }
@@ -103,9 +107,49 @@ SteveKwan.handleExitPanel = function(e)
 
 
 
+SteveKwan.jRespond;
+SteveKwan.defineBreakpoints = function()
+{
+  // call jRespond and add breakpoints
+  SteveKwan.jRespond = jRespond
+  (
+    [
+      {
+          label: 'mobile',
+          enter: 0,
+          exit: 767
+      },
+      {
+          label: 'tablet',
+          enter: 768,
+          exit: 979
+      },
+      {
+          label: 'desktop',
+          enter: 980,
+          exit: 10000
+      }
+    ]
+  );
+};
+
+
+
+
+
+SteveKwan.isMobile = function()
+{
+  return SteveKwan.jRespond.getBreakpoint() === 'mobile';
+};
+
+
+
+
 
 SteveKwan.handleReady = function()
 {
+  SteveKwan.defineBreakpoints();
+
   // Set up transitory arrows that point to the next content region
   SteveKwan.addTransitoryArrow('#header .fixed-region', '#expertise');
   SteveKwan.addTransitoryArrow('#expertise', '#career', 'light');
