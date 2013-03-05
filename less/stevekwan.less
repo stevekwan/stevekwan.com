@@ -70,6 +70,8 @@ h2
 {
     position: relative;
     min-height: 100%;
+    .box-shadow(~"0 0 200px rgba(0,0,0,0.7)");
+
 }
 
 
@@ -182,13 +184,13 @@ h2
   bottom: 1em;
   left: 50%;
   margin-left: -(@transitory-arrow-size/2);
-  opacity: 0.6;
+  opacity: 0.4;
   .transition(~"opacity 100ms ease-in");
 }
 
 .transitory-arrow:hover
 {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .transitory-arrow.light

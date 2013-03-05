@@ -174,7 +174,12 @@ SteveKwan.handleReady = function()
   $(SteveKwan.sections).bind('SteveKwan.enterPanel', SteveKwan.handleEnterPanel);
   $(SteveKwan.sections).bind('SteveKwan.exitPanel', SteveKwan.handleExitPanel);
 
-  $('img.lazy').lazyload();
+  $('img.lazy').lazyload
+  (
+    {
+      effect: "fadeIn"
+    }
+  );
 };
 
 
