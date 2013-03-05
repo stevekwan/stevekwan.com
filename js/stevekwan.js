@@ -51,11 +51,11 @@ SteveKwan.handleScroll = function()
 
         SteveKwan.currentSection = $(element);
 
-        $(afterNewSelection).children().animate({'opacity':1});
+        $(afterNewSelection).children().not('.transitory-arrow').animate({'opacity':1});
 
         if (SteveKwan.isMobile()) return;
 
-        $(beforeNewSelection).children().animate({'opacity':0});
+        $(beforeNewSelection).children().not('.transitory-arrow').animate({'opacity':0});
         $(oldSelection).trigger('SteveKwan.exitPanel');
         $(element).trigger('SteveKwan.enterPanel');
       }
@@ -148,6 +148,7 @@ SteveKwan.isMobile = function()
 
 SteveKwan.handleReady = function()
 {
+  // JavaScript triggers when switching between breakpoints
   SteveKwan.defineBreakpoints();
 
   // Set up transitory arrows that point to the next content region
@@ -157,6 +158,7 @@ SteveKwan.handleReady = function()
   SteveKwan.addTransitoryArrow('#portfolio', '#interests', 'light');
   SteveKwan.addTransitoryArrow("#interests", "#footer");
 
+  // No scroll when page loads...initialize that behaviour manually
   SteveKwan.handleScroll();
 
   $(window).scroll
@@ -168,8 +170,11 @@ SteveKwan.handleReady = function()
     )
   );
 
+  // Trap custom events when entering/exiting a major section/panel of the site
   $(SteveKwan.sections).bind('SteveKwan.enterPanel', SteveKwan.handleEnterPanel);
   $(SteveKwan.sections).bind('SteveKwan.exitPanel', SteveKwan.handleExitPanel);
+
+  $('img.lazy').lazyload();
 };
 
 
