@@ -78,12 +78,12 @@ h2
 {
   img
   {
-    .transition(~"transform 100ms ease-in");
+    .transition(~"margin-top 100ms ease-in-out");
   }
 
   img:hover
   {
-    .scale(1.05);
+    margin-top: -1em;
   }
 }
 
@@ -211,7 +211,7 @@ h2
   left: 50%;
   margin-left: -(@transitory-arrow-size/2);
   opacity: 0.4;
-  .transition(~"opacity 100ms ease-in");
+  .transition(~"opacity 100ms ease-in-out");
 }
 
 .transitory-arrow:hover
@@ -249,7 +249,7 @@ h2
   img
   {
     opacity: 0.6;
-    .transition(~"opacity 100ms ease-in");
+    .transition(~"opacity 100ms ease-in-out");
   }
 
   img:hover
