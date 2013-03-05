@@ -4,13 +4,24 @@
  * Variables
  */
 @body-color: #888888;
-@header-color: @body-color;
-@content-color: #FFFFFF;
-@footer-color: @content-color;
-
 @body-bg: #FFFFFF;
+
+@header-color: @body-color;
 @header-bg: @body-bg;
-@content-bg: #000044;
+
+@expertise-color: #FFFFFF;
+@expertise-bg: #000044;
+
+@career-color: @body-color;
+@career-bg: #eeeeee;
+
+@portfolio-color: #FFFFFF;
+@portfolio-bg: #000044;
+
+@interests-color: @body-color;
+@interests-bg: @body-bg;
+
+@footer-color: #FFFFFF;
 @footer-bg: #000022;
 
 @transitory-arrow-size: 100px;
@@ -28,6 +39,16 @@ body
   height: 100%;
 }
 
+body
+{
+  color: @body-color;
+  background-color: @body-bg;
+  font-family: 'Tauri', sans-serif;
+  font-size: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 h1
 {
   line-height: 1.2em;
@@ -38,20 +59,17 @@ h2
   line-height: 1.3em;
 }
 
-body
-{
-  color: @body-color;
-  background-color: @body-bg;
-  font-family: 'Tauri', sans-serif;
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .ir
 {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.panel
+{
+    position: relative;
+    min-height: 100%;
 }
 
 
@@ -65,9 +83,8 @@ body
 {
   color: @header-color;
   background-color: @header-bg;
-  min-height: 100%;
+
   top: 0;
-  position: relative;
   .animation(~"fade-in 500ms ease-in 0s 1 both");
 
   .fixed-region
@@ -82,28 +99,6 @@ body
     margin-top: 1.5em;
   }
 
-  .social
-  {
-    list-style-type: none;
-    padding-left: 0;
-
-    li
-    {
-      display: inline-block;
-    }
-
-    img
-    {
-      opacity: 0.6;
-      .transition(~"opacity 100ms ease-in");
-    }
-
-    img:hover
-    {
-      opacity: 1;
-    }
-  }
-
 }
 
 
@@ -111,15 +106,51 @@ body
 
 
 /*
- * Content
+ * Expertise
  */
-#content
+#expertise
 {
-  color: @content-color;
-  background-color: @content-bg;
-  min-height: 100%;
-  padding-bottom: @transitory-arrow-size;
-  position: relative;
+  color: @expertise-color;
+  background-color: @expertise-bg;
+}
+
+
+
+
+
+/*
+ * Career
+ */
+#career
+{
+  color: @career-color;
+  background-color: @career-bg;
+}
+
+
+
+
+
+/*
+ * Portfolio
+ */
+#portfolio
+{
+  color: @portfolio-color;
+  background-color: @portfolio-bg;
+}
+
+
+
+
+
+/*
+ * Interests
+ */
+#interests
+{
+  color: @interests-color;
+  background-color: @interests-bg;
 }
 
 
@@ -133,8 +164,6 @@ body
 {
   color: @footer-color;
   background-color: @footer-bg;
-  min-height: 100%;
-  position: relative;
 }
 
 
@@ -171,6 +200,35 @@ body
 {
   background-image: url(../../images/down-arrow-gray.png);
 }
+
+
+
+
+
+/*
+ * Social icons
+ */
+  .social
+  {
+    list-style-type: none;
+    padding-left: 0;
+
+    li
+    {
+      display: inline-block;
+    }
+
+    img
+    {
+      opacity: 0.6;
+      .transition(~"opacity 100ms ease-in");
+    }
+
+    img:hover
+    {
+      opacity: 1;
+    }
+  }
 
 
 
