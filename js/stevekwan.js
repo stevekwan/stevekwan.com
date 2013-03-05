@@ -92,7 +92,16 @@ SteveKwan.addTransitoryArrow = function(container, to, color)
 
 SteveKwan.handleEnterPanel = function(e)
 {
-  console.log("Enter #" + $(e.target).attr('id'));
+  var element = $(e.target);
+  var id = element.attr('id');
+
+  if (id === 'expertise')
+  {
+    element.addClass('bg');
+    element.addClass('animate');
+  }
+
+  console.log("Enter #" + id);
 };
 
 
@@ -101,7 +110,15 @@ SteveKwan.handleEnterPanel = function(e)
 
 SteveKwan.handleExitPanel = function(e)
 {
-  console.log("Exit #" + $(e.target).attr('id'));
+  var element = $(e.target);
+  var id = element.attr('id');
+
+  if (id === 'expertise')
+  {
+    element.removeClass('animate');
+  }
+
+  console.log("Exit #" + id);
 };
 
 
