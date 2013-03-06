@@ -197,6 +197,9 @@ SteveKwan.handleReady = function()
       effect: "fadeIn"
     }
   );
+
+  $('#interests').find('.gallery').colorbox({rel:'jiu-jitsu'});
+
 };
 
 
