@@ -124,6 +124,39 @@ SteveKwan.handleExitPanel = function(e)
 
 
 
+
+SteveKwan.initColorBox = function()
+{
+  $('#interests').find('.gallery').colorbox({rel:'jiu-jitsu'});
+};
+
+
+
+
+
+SteveKwan.handleEnterMobile = function()
+{
+  console.log("Enter mobile");
+
+  $.colorbox.remove();
+};
+
+
+
+
+
+SteveKwan.handleExitMobile = function()
+{
+  console.log("Exit mobile");
+
+  SteveKwan.initColorBox();
+};
+
+
+
+
+
+
 SteveKwan.jRespond;
 SteveKwan.defineBreakpoints = function()
 {
@@ -147,6 +180,15 @@ SteveKwan.defineBreakpoints = function()
           exit: 10000
       }
     ]
+  );
+
+  SteveKwan.jRespond.addFunc
+  (
+    {
+      breakpoint: 'mobile',
+      enter: SteveKwan.handleEnterMobile,
+      exit: SteveKwan.handleExitMobile
+    }
   );
 };
 
@@ -198,7 +240,7 @@ SteveKwan.handleReady = function()
     }
   );
 
-  $('#interests').find('.gallery').colorbox({rel:'jiu-jitsu'});
+  if (!SteveKwan.isMobile()) SteveKwan.initColorBox();
 
 };
 
