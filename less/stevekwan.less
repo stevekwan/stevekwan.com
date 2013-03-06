@@ -4,22 +4,22 @@
  * Variables
  */
 @body-color: #888888;
-@body-bg: #FFFFFF;
+@body-bg: #ffffff;
 
 @header-color: @body-color;
 @header-bg: @body-bg;
 
-@expertise-color: #FFFFFF;
+@expertise-color: #ffffff;
 @expertise-bg: #000044;
 
 @career-color: @body-color;
-@career-bg: #eeeeee;
+@career-bg: #ffffff;
 
-@portfolio-color: #FFFFFF;
+@portfolio-color: #ffffff;
 @portfolio-bg: #000044;
 
 @interests-color: @body-color;
-@interests-bg: @body-bg;
+@interests-bg: #eeeeee;
 
 @footer-color: #FFFFFF;
 @footer-bg: #000022;
@@ -90,7 +90,32 @@ a.gallery:hover img
     position: relative;
     min-height: 100%;
     .box-shadow(~"0 0 200px rgba(0,0,0,0.7)");
+}
 
+
+/*
+ * Social icons
+ */
+.social
+{
+  list-style-type: none;
+  padding-left: 0;
+
+  li
+  {
+    display: inline-block;
+  }
+
+  img
+  {
+    opacity: 0.6;
+    .transition(~"opacity 100ms ease-in-out");
+  }
+
+  img:hover
+  {
+    opacity: 1;
+  }
 }
 
 
@@ -158,6 +183,20 @@ a.gallery:hover img
 {
   color: @career-color;
   background-color: @career-bg;
+
+  ul
+  {
+    padding: 0;
+
+    li
+    {
+      display: inline-block;
+      list-style-type: none;
+      margin-right: 2em;
+      margin-bottom: 2em;
+      line-height: 60px;
+    }
+  }
 }
 
 
@@ -232,35 +271,6 @@ a.gallery:hover img
 .transitory-arrow.dark
 {
   background-image: url(../images/down-arrow-gray.png);
-}
-
-
-
-
-
-/*
- * Social icons
- */
-.social
-{
-  list-style-type: none;
-  padding-left: 0;
-
-  li
-  {
-    display: inline-block;
-  }
-
-  img
-  {
-    opacity: 0.6;
-    .transition(~"opacity 100ms ease-in-out");
-  }
-
-  img:hover
-  {
-    opacity: 1;
-  }
 }
 
 
