@@ -60,6 +60,27 @@ a.gallery:hover img {
   box-shadow: 0 0 200px rgba(0,0,0,0.7);
 }
 /*
+ * Social icons
+ */
+.social {
+  list-style-type: none;
+  padding-left: 0;
+}
+.social li {
+  display: inline-block;
+}
+.social img {
+  opacity: 0.6;
+  -webkit-transition: opacity 100ms ease-in-out;
+  -moz-transition: opacity 100ms ease-in-out;
+  -o-transition: opacity 100ms ease-in-out;
+  -ms-transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
+}
+.social img:hover {
+  opacity: 1;
+}
+/*
  * Header
  */
 #header {
@@ -105,7 +126,17 @@ a.gallery:hover img {
  */
 #career {
   color: #888888;
-  background-color: #eeeeee;
+  background-color: #ffffff;
+}
+#career ul {
+  padding: 0;
+}
+#career ul li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  line-height: 60px;
 }
 /*
  * Portfolio
@@ -119,7 +150,7 @@ a.gallery:hover img {
  */
 #interests {
   color: #888888;
-  background-color: #ffffff;
+  background-color: #eeeeee;
 }
 /*
  * Footer
@@ -154,27 +185,6 @@ a.gallery:hover img {
 }
 .transitory-arrow.dark {
   background-image: url(../images/down-arrow-gray.png);
-}
-/*
- * Social icons
- */
-.social {
-  list-style-type: none;
-  padding-left: 0;
-}
-.social li {
-  display: inline-block;
-}
-.social img {
-  opacity: 0.6;
-  -webkit-transition: opacity 100ms ease-in-out;
-  -moz-transition: opacity 100ms ease-in-out;
-  -o-transition: opacity 100ms ease-in-out;
-  -ms-transition: opacity 100ms ease-in-out;
-  transition: opacity 100ms ease-in-out;
-}
-.social img:hover {
-  opacity: 1;
 }
 /*
  * Media query adjustments?  Refactor?
