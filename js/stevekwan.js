@@ -103,8 +103,6 @@ SteveKwan.handleEnterPanel = function(e)
     element.addClass('bg');
     element.addClass('animate');
   }
-
-  console.log("Enter #" + id);
 };
 
 
@@ -120,8 +118,6 @@ SteveKwan.handleExitPanel = function(e)
   {
     element.removeClass('animate');
   }
-
-  console.log("Exit #" + id);
 };
 
 
@@ -130,7 +126,8 @@ SteveKwan.handleExitPanel = function(e)
 
 SteveKwan.initColorBox = function()
 {
-  $('#interests').find('.gallery').colorbox({rel:'jiu-jitsu'});
+  $('#portfolio').find('.gallery').colorbox({rel:'portfolio', maxWidth:'80%'});
+  $('#interests').find('.gallery').colorbox({rel:'jiu-jitsu', maxWidth:'80%'});
 };
 
 
@@ -139,8 +136,6 @@ SteveKwan.initColorBox = function()
 
 SteveKwan.handleEnterMobile = function()
 {
-  console.log("Enter mobile");
-
   $.colorbox.remove();
 };
 
@@ -150,8 +145,6 @@ SteveKwan.handleEnterMobile = function()
 
 SteveKwan.handleExitMobile = function()
 {
-  console.log("Exit mobile");
-
   SteveKwan.initColorBox();
 };
 
