@@ -130,6 +130,7 @@ a.gallery:hover img {
 }
 #career ul {
   padding: 0;
+  text-align: center;
 }
 #career ul li {
   display: inline-block;
