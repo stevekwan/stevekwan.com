@@ -1,6 +1,3 @@
-/*
- * Steve Kwan Comment
- */
 var SteveKwan = SteveKwan || {};
 
 
@@ -98,11 +95,8 @@ SteveKwan.handleEnterPanel = function(e)
   var element = $(e.target);
   var id = element.attr('id');
 
-  if (id === 'expertise')
-  {
-    element.addClass('bg');
-    element.addClass('animate');
-  }
+  element.addClass('bg');
+  element.addClass('animate');
 };
 
 
@@ -114,10 +108,7 @@ SteveKwan.handleExitPanel = function(e)
   var element = $(e.target);
   var id = element.attr('id');
 
-  if (id === 'expertise')
-  {
-    element.removeClass('animate');
-  }
+  element.removeClass('animate');
 };
 
 

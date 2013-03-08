@@ -25,7 +25,7 @@ a:hover {
   color: #005580;
   text-decoration: underline;
 }
-a:hover h1 {
+h1 {
   font-size: 2em;
   line-height: 1em;
 }
@@ -197,7 +197,7 @@ a.gallery:hover img {
   background-image: url(../images/down-arrow-gray.png);
 }
 /*
- * Media query adjustments?  Refactor?
+ * Mobile media query adjustments.
  */
 @media (max-width: 767px) {
   header,
