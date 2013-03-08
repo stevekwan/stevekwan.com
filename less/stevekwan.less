@@ -6,6 +6,9 @@
 @body-color: #888888;
 @body-bg: #ffffff;
 
+@a-color: #08c;
+@a-hover-color: #005580;
+
 @header-color: @body-color;
 @header-bg: @body-bg;
 
@@ -48,6 +51,20 @@ body
   padding-left: 0;
   padding-right: 0;
 }
+
+a
+{
+  color: @a-color;
+  text-decoration: none;
+}
+
+a:hover
+{
+  color: @a-hover-color;
+  text-decoration: underline;
+}
+
+a:hover
 
 h1
 {
