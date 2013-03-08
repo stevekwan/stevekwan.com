@@ -223,8 +223,8 @@ SteveKwan.handleReady = function()
   $('img.lazy').lazyload
   (
     {
-      effect: "fadeIn",
-      threshold: 500
+      threshold: 700,
+      skip_invisible: false
     }
   );
 
