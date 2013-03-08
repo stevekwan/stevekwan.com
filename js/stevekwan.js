@@ -1,3 +1,11 @@
+/**
+ * The JavaScript powering stevekwan.com.
+ *
+ * Author:
+ *     Steve Kwan
+ *     mail@stevekwan.com
+ *     http://www.stevekwan.com
+ */
 var SteveKwan = SteveKwan || {};
 
 
@@ -11,6 +19,12 @@ SteveKwan.currentSection = $("#header");
 
 
 
+/*
+ * Scrolls the page to a specified element.
+ *
+ * @method scrollTo
+ * @param {String} element A jQuery selector string/object to scroll to.
+ */
 SteveKwan.scrollTo = function(element)
 {
   $("html, body").animate
@@ -26,6 +40,11 @@ SteveKwan.scrollTo = function(element)
 
 
 
+/*
+ * Event handler fired upon user scrolling.  Should be debounced.
+ *
+ * @method handleScroll
+ */
 SteveKwan.handleScroll = function()
 {
   var currentY = $(window).scrollTop();
@@ -67,6 +86,15 @@ SteveKwan.handleScroll = function()
 
 
 
+/*
+ * Adds the teaser "down" arrow that informs the user there's more content
+ * below.  Clicking that arrow scrolls to that section.
+ *
+ * @method addTransitoryArrow
+ * @param {Object} container Display the arrow at the bottom of this element.
+ * @param {Object} to Clicking the arrow scrolls to this element.
+ * @param {String} color Color of the transitory arrow.  Either: light|dark
+ */
 SteveKwan.addTransitoryArrow = function(container, to, color)
 {
   if (color === undefined) color = 'dark';
@@ -90,6 +118,12 @@ SteveKwan.addTransitoryArrow = function(container, to, color)
 
 
 
+/*
+ * Event handler fired when entering a new panel.  Activated by scrolling.
+ *
+ * @method handleEnterPanel
+ * @param {Object} e The event.  Target is the panel being entered.
+ */
 SteveKwan.handleEnterPanel = function(e)
 {
   var element = $(e.target);
@@ -103,6 +137,12 @@ SteveKwan.handleEnterPanel = function(e)
 
 
 
+/*
+ * Event handler fired when exiting a new panel.  Activated by scrolling.
+ *
+ * @method handleExitPanel
+ * @param {Object} e The event.  Target is the panel being exited.
+ */
 SteveKwan.handleExitPanel = function(e)
 {
   var element = $(e.target);
@@ -115,6 +155,11 @@ SteveKwan.handleExitPanel = function(e)
 
 
 
+/*
+ * Initialize all colorbox overlays for image galleries.
+ *
+ * @method initColorBox
+ */
 SteveKwan.initColorBox = function()
 {
   $('#portfolio').find('.gallery').colorbox({rel:'portfolio', maxWidth:'80%'});
@@ -125,6 +170,11 @@ SteveKwan.initColorBox = function()
 
 
 
+/*
+ * Event handler fired when browser is resized into mobile viewport size.
+ *
+ * @method handleEnterMobile
+ */
 SteveKwan.handleEnterMobile = function()
 {
   $.colorbox.remove();
@@ -134,6 +184,11 @@ SteveKwan.handleEnterMobile = function()
 
 
 
+/*
+ * Event handler fired when browser is resized out of mobile viewport size.
+ *
+ * @method handleExitMobile
+ */
 SteveKwan.handleExitMobile = function()
 {
   SteveKwan.initColorBox();
@@ -144,7 +199,15 @@ SteveKwan.handleExitMobile = function()
 
 
 
+// Holds the jRespond object.
 SteveKwan.jRespond;
+
+/*
+ * Define the various responsive breakpoints.  Events are fired when
+ * transitioning across these breakpoints.
+ *
+ * @method defineBreakpoints
+ */
 SteveKwan.defineBreakpoints = function()
 {
   // call jRespond and add breakpoints
@@ -183,6 +246,12 @@ SteveKwan.defineBreakpoints = function()
 
 
 
+/*
+ * Is the user in mobile viewport size or not?
+ *
+ * @method isMobile
+ * @return {Boolean} true if mobile viewport size, false otherwise
+ */
 SteveKwan.isMobile = function()
 {
   return SteveKwan.jRespond.getBreakpoint() === 'mobile';
@@ -192,6 +261,11 @@ SteveKwan.isMobile = function()
 
 
 
+/*
+ * Event handler fired when DOM has been parsed.
+ *
+ * @method handleReady
+ */
 SteveKwan.handleReady = function()
 {
   // JavaScript triggers when switching between breakpoints
@@ -207,11 +281,12 @@ SteveKwan.handleReady = function()
   // No scroll when page loads...initialize that behaviour manually
   SteveKwan.handleScroll();
 
+  // Don't fire the scroll handler too often...
   $(window).scroll
   (
     $.debounce
     (
-      100,
+      100,  // Poll at this interval
       SteveKwan.handleScroll
     )
   );
@@ -220,14 +295,16 @@ SteveKwan.handleReady = function()
   $(SteveKwan.sections).bind('SteveKwan.enterPanel', SteveKwan.handleEnterPanel);
   $(SteveKwan.sections).bind('SteveKwan.exitPanel', SteveKwan.handleExitPanel);
 
+  // Lazy load images not yet required
   $('img.lazy').lazyload
   (
     {
-      threshold: 700,
+      threshold: $(window).height(), // Fetch only a page's worth
       skip_invisible: false
     }
   );
 
+  // Mobile doesn't use overlays
   if (!SteveKwan.isMobile()) SteveKwan.initColorBox();
 
 };
