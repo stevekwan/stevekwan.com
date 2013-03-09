@@ -164,12 +164,38 @@ a.gallery:hover img {
   color: #ffffff;
   background-color: #000044;
 }
+#portfolio a.gallery {
+  position: relative;
+  display: block;
+  padding-top: 65.843949044586%;
+}
+#portfolio a.gallery .lazy {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /*
  * Interests
  */
 #interests {
   color: #888888;
   background-color: #eeeeee;
+}
+#interests a.gallery {
+  position: relative;
+  display: block;
+  padding-top: 53.75%;
+}
+#interests a.gallery .lazy {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 /*
  * Footer
