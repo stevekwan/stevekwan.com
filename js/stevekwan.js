@@ -199,6 +199,24 @@ SteveKwan.handleExitMobile = function()
 
 
 
+/*
+ * Triggered when the jquery.lazyload "appear" function is called for the
+ * careers section.
+ *
+ * We need this right now because we are manually lazy loading the images.
+ * jquery.lazyload does not yet support lazy loading on background images.
+ *
+ * @method handleCareerAppear
+ */
+SteveKwan.handleCareerAppear = function()
+{
+  $('#career').find('.career-sprite').addClass('lazyloaded');
+};
+
+
+
+
+
 // Holds the jRespond object.
 SteveKwan.jRespond;
 
@@ -295,15 +313,35 @@ SteveKwan.handleReady = function()
   $(SteveKwan.sections).bind('SteveKwan.enterPanel', SteveKwan.handleEnterPanel);
   $(SteveKwan.sections).bind('SteveKwan.exitPanel', SteveKwan.handleExitPanel);
 
-  // Lazy load images not yet required
-  $('img.lazy').lazyload
+  var lazyLoadOptions =
+  {
+    effect: 'fadeIn',
+    threshold: $(window).height(), // Fetch only a page's worth
+    skip_invisible: false
+  };
+
+  // Lazy load images further down the page
+  SteveKwan.sections.not('#career').find('img.lazy').lazyload
   (
-    {
-      effect: 'fadeIn',
-      threshold: $(window).height(), // Fetch only a page's worth
-      skip_invisible: false
-    }
+    lazyLoadOptions
   );
+
+  // Careers images need to be loaded differently because they're background
+  // images, and jquery.lazyload does not yet support this.
+  $('#career')
+    .find('.clients')
+    .prepend('<img class="lazy" src="images/blank.png"/>')
+    .find('img.lazy').lazyload
+    (
+      $.extend
+      (
+        {},
+        lazyLoadOptions,
+        {
+          appear: SteveKwan.handleCareerAppear
+        }
+      )
+    );
 
   // Mobile doesn't use overlays
   if (!SteveKwan.isMobile()) SteveKwan.initColorBox();

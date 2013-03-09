@@ -392,15 +392,23 @@ a.gallery:hover img
  * Career spritemap
  */
 .no-js .career-sprite,
-.enter-panel-first-time .career-sprite
+.career-sprite.lazyloaded
 {
-  background: url(../images/career/sprite.png) no-repeat top left;
+  background-image: url(../images/career/sprite.png);
+  background-repeat: no-repeat;
+  background-position: top left;
 }
 
-.enter-panel-first-time .career-sprite
+.clients .lazy
+{
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+/*.enter-panel-first-time .career-sprite
 {
   .animation(~"fade-in 500ms ease-in 0s 1 both");
-}
+}*/
 
 .career-sprite
 {

@@ -292,16 +292,20 @@ a.gallery:hover img {
  * Career spritemap
  */
 .no-js .career-sprite,
-.enter-panel-first-time .career-sprite {
-  background: url(../images/career/sprite.png) no-repeat top left;
+.career-sprite.lazyloaded {
+  background-image: url(../images/career/sprite.png);
+  background-repeat: no-repeat;
+  background-position: top left;
 }
-.enter-panel-first-time .career-sprite {
-  -webkit-animation: fade-in 500ms ease-in 0s 1 both;
-  -moz-animation: fade-in 500ms ease-in 0s 1 both;
-  -o-animation: fade-in 500ms ease-in 0s 1 both;
-  -ms-animation: fade-in 500ms ease-in 0s 1 both;
-  animation: fade-in 500ms ease-in 0s 1 both;
+.clients .lazy {
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
+/*.enter-panel-first-time .career-sprite
+{
+  .animation(~"fade-in 500ms ease-in 0s 1 both");
+}*/
 .career-sprite {
   display: inline-block;
 }
