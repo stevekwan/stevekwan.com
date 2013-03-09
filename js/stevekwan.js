@@ -129,8 +129,8 @@ SteveKwan.handleEnterPanel = function(e)
   var element = $(e.target);
   var id = element.attr('id');
 
-  element.addClass('bg');
-  element.addClass('animate');
+  element.addClass('enter-panel-first-time');
+  element.addClass('enter-panel');
 };
 
 
@@ -148,7 +148,7 @@ SteveKwan.handleExitPanel = function(e)
   var element = $(e.target);
   var id = element.attr('id');
 
-  element.removeClass('animate');
+  element.removeClass('enter-panel');
 };
 
 
@@ -299,6 +299,7 @@ SteveKwan.handleReady = function()
   $('img.lazy').lazyload
   (
     {
+      effect: 'fadeIn',
       threshold: $(window).height(), // Fetch only a page's worth
       skip_invisible: false
     }

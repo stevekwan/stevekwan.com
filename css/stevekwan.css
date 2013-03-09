@@ -33,10 +33,12 @@ h2 {
   font-size: 1.5em;
   line-height: 1em;
 }
+/* Nicole Sullivan's technique:
+ * http://nicolasgallagher.com/another-css-image-replacement-technique/ */
 .ir {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
 }
 img.framed {
   border: #d4d4d4 1em solid;
@@ -124,10 +126,12 @@ a.gallery:hover img {
   color: #e6e6e6;
   margin-left: 2em;
 }
-#expertise.bg {
+/* First time we enter this panel, lazy load the background image */
+#expertise.enter-panel-first-time {
   background-image: url(../images/expertise-bg.png);
 }
-#expertise.animate {
+/* Animate the background in and out when entering/exiting the panel */
+#expertise.enter-panel {
   background-position: 90% 10%;
 }
 /*
@@ -138,6 +142,7 @@ a.gallery:hover img {
   background-color: #ffffff;
 }
 #career ul {
+  margin-top: 2em;
   padding: 0;
   text-align: center;
 }
@@ -256,4 +261,96 @@ a.gallery:hover img {
   to {
     opacity: 1;
   }
+}
+/*
+ * Career spritemap
+ */
+.no-js .career-sprite,
+.enter-panel-first-time .career-sprite {
+  background: url(../images/career/sprite.png) no-repeat top left;
+}
+.enter-panel-first-time .career-sprite {
+  -webkit-animation: fade-in 500ms ease-in 0s 1 both;
+  -moz-animation: fade-in 500ms ease-in 0s 1 both;
+  -o-animation: fade-in 500ms ease-in 0s 1 both;
+  -ms-animation: fade-in 500ms ease-in 0s 1 both;
+  animation: fade-in 500ms ease-in 0s 1 both;
+}
+.career-sprite {
+  display: inline-block;
+}
+.career-sprite.career-alliance-atlantis {
+  background-position: 0 0;
+  width: 100px;
+  height: 51px;
+}
+.career-sprite.career-california {
+  background-position: 0 -101px;
+  width: 90px;
+  height: 60px;
+}
+.career-sprite.career-ea {
+  background-position: 0 -211px;
+  width: 60px;
+  height: 60px;
+}
+.career-sprite.career-fifa {
+  background-position: 0 -321px;
+  width: 100px;
+  height: 33px;
+}
+.career-sprite.career-government-canada {
+  background-position: 0 -404px;
+  width: 100px;
+  height: 31px;
+}
+.career-sprite.career-ibm {
+  background-position: 0 -485px;
+  width: 60px;
+  height: 60px;
+}
+.career-sprite.career-lawrence-livermore {
+  background-position: 0 -595px;
+  width: 100px;
+  height: 19px;
+}
+.career-sprite.career-nfl {
+  background-position: 0 -664px;
+  width: 100px;
+  height: 60px;
+}
+.career-sprite.career-nhl {
+  background-position: 0 -774px;
+  width: 53px;
+  height: 60px;
+}
+.career-sprite.career-nokia {
+  background-position: 0 -884px;
+  width: 60px;
+  height: 60px;
+}
+.career-sprite.career-toshiba {
+  background-position: 0 -994px;
+  width: 100px;
+  height: 15px;
+}
+.career-sprite.career-ufc {
+  background-position: 0 -1059px;
+  width: 100px;
+  height: 52px;
+}
+.career-sprite.career-virgin-gaming {
+  background-position: 0 -1161px;
+  width: 59px;
+  height: 60px;
+}
+.career-sprite.career-vitrium {
+  background-position: 0 -1271px;
+  width: 100px;
+  height: 23px;
+}
+.career-sprite.career-zen-point {
+  background-position: 0 -1344px;
+  width: 100px;
+  height: 22px;
 }
