@@ -321,7 +321,7 @@ SteveKwan.handleReady = function()
   };
 
   // Lazy load images further down the page
-  SteveKwan.sections.not('#career').find('img.lazy').lazyload
+  SteveKwan.sections.find('img.lazy').lazyload
   (
     lazyLoadOptions
   );
@@ -330,8 +330,8 @@ SteveKwan.handleReady = function()
   // images, and jquery.lazyload does not yet support this.
   $('#career')
     .find('.clients')
-    .prepend('<img class="lazy" src="images/blank.png"/>')
-    .find('img.lazy').lazyload
+    .prepend('<img class="client-logo" src="images/blank.png"/>')
+    .find('img.client-logo').lazyload
     (
       $.extend
       (
