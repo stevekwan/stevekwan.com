@@ -95,7 +95,10 @@ a.gallery:hover img {
 .social li {
   display: inline-block;
 }
-.social img {
+.social .social-sprite {
+  background-image: url(../images/social/sprite.png);
+  background-repeat: no-repeat;
+  display: inline-block;
   opacity: 0.6;
   -webkit-transition: opacity 100ms ease-in-out;
   -moz-transition: opacity 100ms ease-in-out;
@@ -103,8 +106,33 @@ a.gallery:hover img {
   -ms-transition: opacity 100ms ease-in-out;
   transition: opacity 100ms ease-in-out;
 }
-.social img:hover {
+.social .social-sprite:hover {
   opacity: 1;
+}
+.social .social-sprite-facebook {
+  background-position: 0 0;
+  width: 32px;
+  height: 32px;
+}
+.social .social-sprite-github {
+  background-position: 0 -82px;
+  width: 32px;
+  height: 32px;
+}
+.social .social-sprite-google-plus {
+  background-position: 0 -164px;
+  width: 32px;
+  height: 32px;
+}
+.social .social-sprite-linkedin {
+  background-position: 0 -246px;
+  width: 32px;
+  height: 32px;
+}
+.social .social-sprite-twitter {
+  background-position: 0 -328px;
+  width: 32px;
+  height: 32px;
 }
 /*
  * Header
