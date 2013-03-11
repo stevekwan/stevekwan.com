@@ -41,7 +41,7 @@ SteveKwan.scrollTo = function(element)
 
 
 /*
- * Event handler fired upon user scrolling.  Should be debounced.
+ * Event handler fired upon user scrolling.
  *
  * @method handleScroll
  */
@@ -70,7 +70,17 @@ SteveKwan.handleScroll = function()
 
         SteveKwan.currentSection = $(element);
 
-        $(afterNewSelection).find('.panel-inner').removeClass('fade-out').addClass('fade-in');
+        $(afterNewSelection).find('.panel-inner').each
+        (
+          function(index, element)
+          {
+            // Don't trigger a fade-in animation unless we actually need to
+            if ($(element).hasClass('fade-out'))
+            {
+              $(element).removeClass('fade-out').addClass('fade-in');
+            }
+          }
+        );
 
         if (SteveKwan.isMobile()) return;
 
