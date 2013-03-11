@@ -70,11 +70,11 @@ SteveKwan.handleScroll = function()
 
         SteveKwan.currentSection = $(element);
 
-        $(afterNewSelection).children().not('.transitory-arrow').animate({'opacity':1});
+        $(afterNewSelection).find('.panel-inner').removeClass('fade-out').addClass('fade-in');
 
         if (SteveKwan.isMobile()) return;
 
-        $(beforeNewSelection).children().not('.transitory-arrow').animate({'opacity':0});
+        $(beforeNewSelection).find('.panel-inner').removeClass('fade-in').addClass('fade-out');
         $(oldSelection).trigger('SteveKwan.exitPanel');
         $(element).trigger('SteveKwan.enterPanel');
       }

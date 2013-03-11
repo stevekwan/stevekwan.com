@@ -84,13 +84,23 @@ footer
   position: relative;
 }
 
-/* Nicole Sullivan's technique:
- * http://nicolasgallagher.com/another-css-image-replacement-technique/ */
+/* Image replacement technique from HTML5 Boilerplate:
+   https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css */
 .ir
 {
-    font: 0/0 a;
-    text-shadow: none;
-    color: transparent;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+}
+
+.ir:before
+{
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
 }
 
 img.framed
@@ -157,7 +167,6 @@ a.gallery:hover img
   background-color: @header-bg;
 
   top: 0;
-  .animation(~"fade-in 500ms ease-in 0s 1 both");
 
   .fixed-region
   {
@@ -180,6 +189,7 @@ a.gallery:hover img
   background-position: 200% 10%;
   background-repeat: no-repeat;
   .transition(~"background-position 750ms ease-in-out 250ms");
+  .ios-hardware-acceleration;
 
   p
   {
@@ -222,6 +232,7 @@ a.gallery:hover img
     top: 0%;
     opacity: 0;
     .transition(~"opacity 1s ease-in-out 500ms");
+    .ios-hardware-acceleration;
   }
 
   .bg img
@@ -310,6 +321,7 @@ a.gallery:hover img
     top: 0%;
     opacity: 0;
     .transition(~"opacity 1s ease-in-out 500ms");
+    .ios-hardware-acceleration;
   }
 
   .bg img
@@ -336,6 +348,11 @@ a.gallery:hover img
     width: 100%;
     height: 100%;
   }
+}
+
+#interests.enter-panel .bg
+{
+  opacity: 1;
 }
 
 
@@ -414,32 +431,6 @@ a.gallery:hover img
 
 
 /*
- * Keyframes.  When LESSHat supports keyframes these should be transitioned.
- */
-
-@-webkit-keyframes fade-in {.fade-in-keyframes;}
-@-moz-keyframes    fade-in {.fade-in-keyframes;}
-@-ms-keyframes     fade-in {.fade-in-keyframes;}
-@-o-keyframes      fade-in {.fade-in-keyframes;}
-@keyframes         fade-in {.fade-in-keyframes;}
-
-.fade-in-keyframes ()
-{
-  from
-  {
-    opacity: 0;
-  }
-  to
-  {
-    opacity: 1;
-  }
-}
-
-
-
-
-
-/*
  * Career spritemap
  */
 .no-js .career-sprite,
@@ -456,10 +447,6 @@ a.gallery:hover img
   width: 0;
   overflow: hidden;
 }
-/*.enter-panel-first-time .career-sprite
-{
-  .animation(~"fade-in 500ms ease-in 0s 1 both");
-}*/
 
 .career-sprite
 {
@@ -569,4 +556,72 @@ a.gallery:hover img
   background-position: 0 -1344px;
   width: 100px;
   height: 22px;
+}
+
+
+
+
+
+/*
+ * Keyframes.  When LESSHat supports keyframes these should be transitioned.
+ */
+.fade-in
+{
+  .animation(~"fade-in 500ms ease-in 0s 1 both");
+  .ios-hardware-acceleration;
+}
+
+.fade-out
+{
+  .animation(~"fade-out 500ms ease-in 0s 1 both");
+}
+
+@-webkit-keyframes fade-in {.fade-in-keyframes;}
+@-moz-keyframes    fade-in {.fade-in-keyframes;}
+@-ms-keyframes     fade-in {.fade-in-keyframes;}
+@-o-keyframes      fade-in {.fade-in-keyframes;}
+@keyframes         fade-in {.fade-in-keyframes;}
+
+.fade-in-keyframes ()
+{
+  from
+  {
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {.fade-out-keyframes;}
+@-moz-keyframes    fade-out {.fade-out-keyframes;}
+@-ms-keyframes     fade-out {.fade-out-keyframes;}
+@-o-keyframes      fade-out {.fade-out-keyframes;}
+@keyframes         fade-out {.fade-out-keyframes;}
+
+.fade-out-keyframes ()
+{
+  from
+  {
+    opacity: 1;
+  }
+  to
+  {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+/*
+ * Mixins
+ */
+.ios-hardware-acceleration()
+{
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  webkit-backface-visibility: hidden;
 }

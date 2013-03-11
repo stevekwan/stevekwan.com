@@ -38,12 +38,21 @@ section,
 footer {
   position: relative;
 }
-/* Nicole Sullivan's technique:
- * http://nicolasgallagher.com/another-css-image-replacement-technique/ */
+/* Image replacement technique from HTML5 Boilerplate:
+   https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css */
 .ir {
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+
+  *text-indent: -9999px;
+}
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
 }
 img.framed {
   border: #d4d4d4 1em solid;
@@ -104,11 +113,6 @@ a.gallery:hover img {
   color: #888888;
   background-color: #ffffff;
   top: 0;
-  -webkit-animation: fade-in 500ms ease-in 0s 1 both;
-  -moz-animation: fade-in 500ms ease-in 0s 1 both;
-  -o-animation: fade-in 500ms ease-in 0s 1 both;
-  -ms-animation: fade-in 500ms ease-in 0s 1 both;
-  animation: fade-in 500ms ease-in 0s 1 both;
 }
 #header .fixed-region {
   position: fixed;
@@ -127,6 +131,9 @@ a.gallery:hover img {
   -o-transition: background-position 750ms ease-in-out 250ms;
   -ms-transition: background-position 750ms ease-in-out 250ms;
   transition: background-position 750ms ease-in-out 250ms;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  webkit-backface-visibility: hidden;
 }
 #expertise p {
   color: #e6e6e6;
@@ -160,6 +167,9 @@ a.gallery:hover img {
   -o-transition: opacity 1s ease-in-out 500ms;
   -ms-transition: opacity 1s ease-in-out 500ms;
   transition: opacity 1s ease-in-out 500ms;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  webkit-backface-visibility: hidden;
 }
 #career .bg img {
   position: absolute;
@@ -224,6 +234,9 @@ a.gallery:hover img {
   -o-transition: opacity 1s ease-in-out 500ms;
   -ms-transition: opacity 1s ease-in-out 500ms;
   transition: opacity 1s ease-in-out 500ms;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  webkit-backface-visibility: hidden;
 }
 #interests .bg img {
   position: absolute;
@@ -243,6 +256,9 @@ a.gallery:hover img {
   left: 0;
   width: 100%;
   height: 100%;
+}
+#interests.enter-panel .bg {
+  opacity: 1;
 }
 /*
  * Footer
@@ -293,49 +309,6 @@ a.gallery:hover img {
   }
 }
 /*
- * Keyframes.  When LESSHat supports keyframes these should be transitioned.
- */
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-ms-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-o-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/*
  * Career spritemap
  */
 .no-js .career-sprite,
@@ -349,10 +322,6 @@ a.gallery:hover img {
   width: 0;
   overflow: hidden;
 }
-/*.enter-panel-first-time .career-sprite
-{
-  .animation(~"fade-in 500ms ease-in 0s 1 both");
-}*/
 .career-sprite {
   display: inline-block;
 }
@@ -431,3 +400,106 @@ a.gallery:hover img {
   width: 100px;
   height: 22px;
 }
+/*
+ * Keyframes.  When LESSHat supports keyframes these should be transitioned.
+ */
+.fade-in {
+  -webkit-animation: fade-in 500ms ease-in 0s 1 both;
+  -moz-animation: fade-in 500ms ease-in 0s 1 both;
+  -o-animation: fade-in 500ms ease-in 0s 1 both;
+  -ms-animation: fade-in 500ms ease-in 0s 1 both;
+  animation: fade-in 500ms ease-in 0s 1 both;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  webkit-backface-visibility: hidden;
+}
+.fade-out {
+  -webkit-animation: fade-out 500ms ease-in 0s 1 both;
+  -moz-animation: fade-out 500ms ease-in 0s 1 both;
+  -o-animation: fade-out 500ms ease-in 0s 1 both;
+  -ms-animation: fade-out 500ms ease-in 0s 1 both;
+  animation: fade-out 500ms ease-in 0s 1 both;
+}
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-moz-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-ms-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-o-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*
+ * Mixins
+ */
