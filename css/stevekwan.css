@@ -188,6 +188,7 @@ a.gallery:hover img {
   margin-right: 2em;
   margin-bottom: 2em;
   line-height: 60px;
+  height: 60px;
   vertical-align: middle;
 }
 #career ul li img {
