@@ -392,6 +392,7 @@ a.gallery:hover img
 #interests.enter-panel .bg
 {
   opacity: 1;
+  .animation(~"slide-up 2s ease-in-out 500ms 1 both");
 }
 
 
@@ -615,6 +616,11 @@ a.gallery:hover img
   .animation(~"fade-out 500ms ease-in 0s 1 both");
 }
 
+.slide-up
+{
+  .animation(~"slide-up 500ms ease-in 0s 1 both");
+}
+
 @-webkit-keyframes fade-in {.fade-in-keyframes;}
 @-moz-keyframes    fade-in {.fade-in-keyframes;}
 @-ms-keyframes     fade-in {.fade-in-keyframes;}
@@ -648,6 +654,24 @@ a.gallery:hover img
   to
   {
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes slide-up {.slide-up-keyframes;}
+@-moz-keyframes    slide-up {.slide-up-keyframes;}
+@-ms-keyframes     slide-up {.slide-up-keyframes;}
+@-o-keyframes      slide-up {.slide-up-keyframes;}
+@keyframes         slide-up {.slide-up-keyframes;}
+
+.slide-up-keyframes ()
+{
+  from
+  {
+    margin-top: 100%;
+  }
+  to
+  {
+    margin-top: 0;
   }
 }
 

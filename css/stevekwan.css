@@ -288,6 +288,11 @@ a.gallery:hover img {
 }
 #interests.enter-panel .bg {
   opacity: 1;
+  -webkit-animation: slide-up 2s ease-in-out 500ms 1 both;
+  -moz-animation: slide-up 2s ease-in-out 500ms 1 both;
+  -o-animation: slide-up 2s ease-in-out 500ms 1 both;
+  -ms-animation: slide-up 2s ease-in-out 500ms 1 both;
+  animation: slide-up 2s ease-in-out 500ms 1 both;
 }
 /*
  * Footer
@@ -449,6 +454,13 @@ a.gallery:hover img {
   -ms-animation: fade-out 500ms ease-in 0s 1 both;
   animation: fade-out 500ms ease-in 0s 1 both;
 }
+.slide-up {
+  -webkit-animation: slide-up 500ms ease-in 0s 1 both;
+  -moz-animation: slide-up 500ms ease-in 0s 1 both;
+  -o-animation: slide-up 500ms ease-in 0s 1 both;
+  -ms-animation: slide-up 500ms ease-in 0s 1 both;
+  animation: slide-up 500ms ease-in 0s 1 both;
+}
 @-webkit-keyframes fade-in {
   from {
     opacity: 0;
@@ -527,6 +539,46 @@ a.gallery:hover img {
   }
   to {
     opacity: 0;
+  }
+}
+@-webkit-keyframes slide-up {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@-moz-keyframes slide-up {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@-ms-keyframes slide-up {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@-o-keyframes slide-up {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+@keyframes slide-up {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0;
   }
 }
 /*
