@@ -26,11 +26,11 @@ a:hover {
   text-decoration: underline;
 }
 h1 {
-  font-size: 2em;
+  font-size: 2.61803398875024em;
   line-height: 1em;
 }
 h2 {
-  font-size: 1.5em;
+  font-size: 1.61803398875em;
   line-height: 1em;
 }
 header,
@@ -151,7 +151,7 @@ a.gallery:hover img {
  */
 #expertise {
   color: #ffffff;
-  background-color: #000044;
+  background-color: #333366;
   background-position: 200% 10%;
   background-repeat: no-repeat;
   -webkit-transition: background-position 750ms ease-in-out 250ms;
