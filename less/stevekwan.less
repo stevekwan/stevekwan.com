@@ -156,6 +156,29 @@ a.gallery:hover img
 }
 
 
+/*
+ * Transitory arrows
+ */
+.transitory-arrow
+{
+  display: inline-block;
+  width: @transitory-arrow-size;
+  height: @transitory-arrow-size;
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  margin-left: -(@transitory-arrow-size/2);
+  opacity: 0.4;
+  .transition(~"opacity 100ms ease-in-out");
+}
+
+.transitory-arrow:hover
+{
+  opacity: 0.6;
+}
+
+
+
 
 
 
@@ -173,6 +196,11 @@ a.gallery:hover img
   {
     position: fixed;
     min-height: 100%;
+  }
+
+  .transitory-arrow
+  {
+    .animation(~"header-transitory-arrow 2s ease-in-out 0 1 both");
   }
 }
 
@@ -259,10 +287,9 @@ a.gallery:hover img
       height: 60px;
       vertical-align: middle;
 
-      img
+      .career-sprite
       {
-        max-height: 60px;
-        max-width: 100px;
+        display: inline-block;
       }
     }
   }
@@ -356,7 +383,7 @@ a.gallery:hover img
 #interests.enter-panel .bg
 {
   opacity: 1;
-  .animation(~"slide-up 2s ease-in-out 500ms 1 both");
+  .animation(~"interests-bg 2s ease-in-out 0 1 both");
 }
 
 
@@ -370,31 +397,6 @@ a.gallery:hover img
 {
   color: @footer-color;
   background-color: @footer-bg;
-}
-
-
-
-
-
-/*
- * Transitory arrows
- */
-.transitory-arrow
-{
-  display: inline-block;
-  width: @transitory-arrow-size;
-  height: @transitory-arrow-size;
-  position: absolute;
-  bottom: 1em;
-  left: 50%;
-  margin-left: -(@transitory-arrow-size/2);
-  opacity: 0.4;
-  .transition(~"opacity 100ms ease-in-out");
-}
-
-.transitory-arrow:hover
-{
-  opacity: 0.6;
 }
 
 
@@ -482,6 +484,9 @@ a.gallery:hover img
 }
 
 
+
+
+
 /*
  * Career spritemap
  */
@@ -492,117 +497,105 @@ a.gallery:hover img
   background-repeat: no-repeat;
 }
 
-.clients .client-logo
-{
-  height: 0;
-  width: 0;
-  overflow: hidden;
-}
-
-.career-sprite
-{
-  display: inline-block;
-}
-
-.career-sprite.career-sprite-alliance-atlantis
+.career-sprite-alliance-atlantis
 {
   background-position: 0 0;
   width: 100px;
   height: 51px;
 }
 
-.career-sprite.career-sprite-california
+.career-sprite-california
 {
   background-position: 0 -101px;
   width: 90px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-ea
+.career-sprite-ea
 {
   background-position: 0 -211px;
   width: 60px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-fifa
+.career-sprite-fifa
 {
   background-position: 0 -321px;
   width: 100px;
   height: 33px;
 }
 
-.career-sprite.career-sprite-government-canada
+.career-sprite-government-canada
 {
   background-position: 0 -404px;
   width: 100px;
   height: 31px;
 }
 
-.career-sprite.career-sprite-ibm
+.career-sprite-ibm
 {
   background-position: 0 -485px;
   width: 60px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-lawrence-livermore
+.career-sprite-lawrence-livermore
 {
   background-position: 0 -595px;
   width: 100px;
   height: 19px;
 }
 
-.career-sprite.career-sprite-nfl
+.career-sprite-nfl
 {
   background-position: 0 -664px;
   width: 100px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-nhl
+.career-sprite-nhl
 {
   background-position: 0 -774px;
   width: 53px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-nokia
+.career-sprite-nokia
 {
   background-position: 0 -884px;
   width: 60px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-toshiba
+.career-sprite-toshiba
 {
   background-position: 0 -994px;
   width: 100px;
   height: 15px;
 }
 
-.career-sprite.career-sprite-ufc
+.career-sprite-ufc
 {
   background-position: 0 -1059px;
   width: 100px;
   height: 52px;
 }
 
-.career-sprite.career-sprite-virgin-gaming
+.career-sprite-virgin-gaming
 {
   background-position: 0 -1161px;
   width: 59px;
   height: 60px;
 }
 
-.career-sprite.career-sprite-vitrium
+.career-sprite-vitrium
 {
   background-position: 0 -1271px;
   width: 100px;
   height: 23px;
 }
 
-.career-sprite.career-sprite-zen-point
+.career-sprite-zen-point
 {
   background-position: 0 -1344px;
   width: 100px;
@@ -618,18 +611,8 @@ a.gallery:hover img
  */
 .fade-in
 {
-  .animation(~"fade-in 500ms ease-in 0s 1 both");
+  .animation(~"fade-in 500ms ease-in-out 0s 1 both");
   .ios-hardware-acceleration;
-}
-
-.fade-out
-{
-  .animation(~"fade-out 500ms ease-in 0s 1 both");
-}
-
-.slide-up
-{
-  .animation(~"slide-up 500ms ease-in 0s 1 both");
 }
 
 @-webkit-keyframes fade-in {.fade-in-keyframes;}
@@ -650,6 +633,11 @@ a.gallery:hover img
   }
 }
 
+.fade-out
+{
+  .animation(~"fade-out 500ms ease-in-out 0s 1 both");
+}
+
 @-webkit-keyframes fade-out {.fade-out-keyframes;}
 @-moz-keyframes    fade-out {.fade-out-keyframes;}
 @-ms-keyframes     fade-out {.fade-out-keyframes;}
@@ -668,13 +656,13 @@ a.gallery:hover img
   }
 }
 
-@-webkit-keyframes slide-up {.slide-up-keyframes;}
-@-moz-keyframes    slide-up {.slide-up-keyframes;}
-@-ms-keyframes     slide-up {.slide-up-keyframes;}
-@-o-keyframes      slide-up {.slide-up-keyframes;}
-@keyframes         slide-up {.slide-up-keyframes;}
+@-webkit-keyframes interests-bg {.interests-bg-keyframes;}
+@-moz-keyframes    interests-bg {.interests-bg-keyframes;}
+@-ms-keyframes     interests-bg {.interests-bg-keyframes;}
+@-o-keyframes      interests-bg {.interests-bg-keyframes;}
+@keyframes         interests-bg {.interests-bg-keyframes;}
 
-.slide-up-keyframes ()
+.interests-bg-keyframes ()
 {
   from
   {
@@ -683,6 +671,24 @@ a.gallery:hover img
   to
   {
     margin-top: 0;
+  }
+}
+
+@-webkit-keyframes header-transitory-arrow {.header-transitory-arrow-keyframes;}
+@-moz-keyframes    header-transitory-arrow {.header-transitory-arrow-keyframes;}
+@-ms-keyframes     header-transitory-arrow {.header-transitory-arrow-keyframes;}
+@-o-keyframes      header-transitory-arrow {.header-transitory-arrow-keyframes;}
+@keyframes         header-transitory-arrow {.header-transitory-arrow-keyframes;}
+
+.header-transitory-arrow-keyframes ()
+{
+  from
+  {
+    margin-bottom: -100%;
+  }
+  to
+  {
+    margin-bottom: 0;
   }
 }
 

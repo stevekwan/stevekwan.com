@@ -108,6 +108,27 @@ a.gallery:hover img {
   opacity: 1;
 }
 /*
+ * Transitory arrows
+ */
+.transitory-arrow {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  margin-left: -50px;
+  opacity: 0.4;
+  -webkit-transition: opacity 100ms ease-in-out;
+  -moz-transition: opacity 100ms ease-in-out;
+  -o-transition: opacity 100ms ease-in-out;
+  -ms-transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
+}
+.transitory-arrow:hover {
+  opacity: 0.6;
+}
+/*
  * Header
  */
 #header {
@@ -118,6 +139,13 @@ a.gallery:hover img {
 #header .fixed-region {
   position: fixed;
   min-height: 100%;
+}
+#header .transitory-arrow {
+  -webkit-animation: header-transitory-arrow 2s ease-in-out 0 1 both;
+  -moz-animation: header-transitory-arrow 2s ease-in-out 0 1 both;
+  -o-animation: header-transitory-arrow 2s ease-in-out 0 1 both;
+  -ms-animation: header-transitory-arrow 2s ease-in-out 0 1 both;
+  animation: header-transitory-arrow 2s ease-in-out 0 1 both;
 }
 /*
  * Expertise
@@ -191,9 +219,8 @@ a.gallery:hover img {
   height: 60px;
   vertical-align: middle;
 }
-#career ul li img {
-  max-height: 60px;
-  max-width: 100px;
+#career ul li .career-sprite {
+  display: inline-block;
 }
 #career.enter-panel .bg {
   opacity: 1;
@@ -262,11 +289,11 @@ a.gallery:hover img {
 }
 #interests.enter-panel .bg {
   opacity: 1;
-  -webkit-animation: slide-up 2s ease-in-out 500ms 1 both;
-  -moz-animation: slide-up 2s ease-in-out 500ms 1 both;
-  -o-animation: slide-up 2s ease-in-out 500ms 1 both;
-  -ms-animation: slide-up 2s ease-in-out 500ms 1 both;
-  animation: slide-up 2s ease-in-out 500ms 1 both;
+  -webkit-animation: interests-bg 2s ease-in-out 0 1 both;
+  -moz-animation: interests-bg 2s ease-in-out 0 1 both;
+  -o-animation: interests-bg 2s ease-in-out 0 1 both;
+  -ms-animation: interests-bg 2s ease-in-out 0 1 both;
+  animation: interests-bg 2s ease-in-out 0 1 both;
 }
 /*
  * Footer
@@ -274,27 +301,6 @@ a.gallery:hover img {
 #footer {
   color: #ffffff;
   background-color: #000022;
-}
-/*
- * Transitory arrows
- */
-.transitory-arrow {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  bottom: 1em;
-  left: 50%;
-  margin-left: -50px;
-  opacity: 0.4;
-  -webkit-transition: opacity 100ms ease-in-out;
-  -moz-transition: opacity 100ms ease-in-out;
-  -o-transition: opacity 100ms ease-in-out;
-  -ms-transition: opacity 100ms ease-in-out;
-  transition: opacity 100ms ease-in-out;
-}
-.transitory-arrow:hover {
-  opacity: 0.6;
 }
 /*
  * Mobile media query adjustments.
@@ -360,85 +366,77 @@ a.gallery:hover img {
   background-image: url(../images/career/sprite.png);
   background-repeat: no-repeat;
 }
-.clients .client-logo {
-  height: 0;
-  width: 0;
-  overflow: hidden;
-}
-.career-sprite {
-  display: inline-block;
-}
-.career-sprite.career-sprite-alliance-atlantis {
+.career-sprite-alliance-atlantis {
   background-position: 0 0;
   width: 100px;
   height: 51px;
 }
-.career-sprite.career-sprite-california {
+.career-sprite-california {
   background-position: 0 -101px;
   width: 90px;
   height: 60px;
 }
-.career-sprite.career-sprite-ea {
+.career-sprite-ea {
   background-position: 0 -211px;
   width: 60px;
   height: 60px;
 }
-.career-sprite.career-sprite-fifa {
+.career-sprite-fifa {
   background-position: 0 -321px;
   width: 100px;
   height: 33px;
 }
-.career-sprite.career-sprite-government-canada {
+.career-sprite-government-canada {
   background-position: 0 -404px;
   width: 100px;
   height: 31px;
 }
-.career-sprite.career-sprite-ibm {
+.career-sprite-ibm {
   background-position: 0 -485px;
   width: 60px;
   height: 60px;
 }
-.career-sprite.career-sprite-lawrence-livermore {
+.career-sprite-lawrence-livermore {
   background-position: 0 -595px;
   width: 100px;
   height: 19px;
 }
-.career-sprite.career-sprite-nfl {
+.career-sprite-nfl {
   background-position: 0 -664px;
   width: 100px;
   height: 60px;
 }
-.career-sprite.career-sprite-nhl {
+.career-sprite-nhl {
   background-position: 0 -774px;
   width: 53px;
   height: 60px;
 }
-.career-sprite.career-sprite-nokia {
+.career-sprite-nokia {
   background-position: 0 -884px;
   width: 60px;
   height: 60px;
 }
-.career-sprite.career-sprite-toshiba {
+.career-sprite-toshiba {
   background-position: 0 -994px;
   width: 100px;
   height: 15px;
 }
-.career-sprite.career-sprite-ufc {
+.career-sprite-ufc {
   background-position: 0 -1059px;
   width: 100px;
   height: 52px;
 }
-.career-sprite.career-sprite-virgin-gaming {
+.career-sprite-virgin-gaming {
   background-position: 0 -1161px;
   width: 59px;
   height: 60px;
 }
-.career-sprite.career-sprite-vitrium {
+.career-sprite-vitrium {
   background-position: 0 -1271px;
   width: 100px;
   height: 23px;
 }
-.career-sprite.career-sprite-zen-point {
+.career-sprite-zen-point {
   background-position: 0 -1344px;
   width: 100px;
   height: 22px;
@@ -447,28 +445,14 @@ a.gallery:hover img {
  * Keyframes.  When LESSHat supports keyframes these should be transitioned.
  */
 .fade-in {
-  -webkit-animation: fade-in 500ms ease-in 0s 1 both;
-  -moz-animation: fade-in 500ms ease-in 0s 1 both;
-  -o-animation: fade-in 500ms ease-in 0s 1 both;
-  -ms-animation: fade-in 500ms ease-in 0s 1 both;
-  animation: fade-in 500ms ease-in 0s 1 both;
+  -webkit-animation: fade-in 500ms ease-in-out 0s 1 both;
+  -moz-animation: fade-in 500ms ease-in-out 0s 1 both;
+  -o-animation: fade-in 500ms ease-in-out 0s 1 both;
+  -ms-animation: fade-in 500ms ease-in-out 0s 1 both;
+  animation: fade-in 500ms ease-in-out 0s 1 both;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   webkit-backface-visibility: hidden;
-}
-.fade-out {
-  -webkit-animation: fade-out 500ms ease-in 0s 1 both;
-  -moz-animation: fade-out 500ms ease-in 0s 1 both;
-  -o-animation: fade-out 500ms ease-in 0s 1 both;
-  -ms-animation: fade-out 500ms ease-in 0s 1 both;
-  animation: fade-out 500ms ease-in 0s 1 both;
-}
-.slide-up {
-  -webkit-animation: slide-up 500ms ease-in 0s 1 both;
-  -moz-animation: slide-up 500ms ease-in 0s 1 both;
-  -o-animation: slide-up 500ms ease-in 0s 1 both;
-  -ms-animation: slide-up 500ms ease-in 0s 1 both;
-  animation: slide-up 500ms ease-in 0s 1 both;
 }
 @-webkit-keyframes fade-in {
   from {
@@ -510,6 +494,13 @@ a.gallery:hover img {
     opacity: 1;
   }
 }
+.fade-out {
+  -webkit-animation: fade-out 500ms ease-in-out 0s 1 both;
+  -moz-animation: fade-out 500ms ease-in-out 0s 1 both;
+  -o-animation: fade-out 500ms ease-in-out 0s 1 both;
+  -ms-animation: fade-out 500ms ease-in-out 0s 1 both;
+  animation: fade-out 500ms ease-in-out 0s 1 both;
+}
 @-webkit-keyframes fade-out {
   from {
     opacity: 1;
@@ -550,7 +541,7 @@ a.gallery:hover img {
     opacity: 0;
   }
 }
-@-webkit-keyframes slide-up {
+@-webkit-keyframes interests-bg {
   from {
     margin-top: 100%;
   }
@@ -558,7 +549,7 @@ a.gallery:hover img {
     margin-top: 0;
   }
 }
-@-moz-keyframes slide-up {
+@-moz-keyframes interests-bg {
   from {
     margin-top: 100%;
   }
@@ -566,7 +557,7 @@ a.gallery:hover img {
     margin-top: 0;
   }
 }
-@-ms-keyframes slide-up {
+@-ms-keyframes interests-bg {
   from {
     margin-top: 100%;
   }
@@ -574,7 +565,7 @@ a.gallery:hover img {
     margin-top: 0;
   }
 }
-@-o-keyframes slide-up {
+@-o-keyframes interests-bg {
   from {
     margin-top: 100%;
   }
@@ -582,12 +573,52 @@ a.gallery:hover img {
     margin-top: 0;
   }
 }
-@keyframes slide-up {
+@keyframes interests-bg {
   from {
     margin-top: 100%;
   }
   to {
     margin-top: 0;
+  }
+}
+@-webkit-keyframes header-transitory-arrow {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+@-moz-keyframes header-transitory-arrow {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+@-ms-keyframes header-transitory-arrow {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+@-o-keyframes header-transitory-arrow {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+@keyframes header-transitory-arrow {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0;
   }
 }
 /*
