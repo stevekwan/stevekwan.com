@@ -95,9 +95,7 @@ a.gallery:hover img {
 .social li {
   display: inline-block;
 }
-.social .social-sprite {
-  background-image: url(../images/social/sprite.png);
-  background-repeat: no-repeat;
+.social a {
   display: inline-block;
   opacity: 0.6;
   -webkit-transition: opacity 100ms ease-in-out;
@@ -106,33 +104,8 @@ a.gallery:hover img {
   -ms-transition: opacity 100ms ease-in-out;
   transition: opacity 100ms ease-in-out;
 }
-.social .social-sprite:hover {
+.social a:hover {
   opacity: 1;
-}
-.social .social-sprite-facebook {
-  background-position: 0 0;
-  width: 32px;
-  height: 32px;
-}
-.social .social-sprite-github {
-  background-position: 0 -82px;
-  width: 32px;
-  height: 32px;
-}
-.social .social-sprite-google-plus {
-  background-position: 0 -164px;
-  width: 32px;
-  height: 32px;
-}
-.social .social-sprite-linkedin {
-  background-position: 0 -246px;
-  width: 32px;
-  height: 32px;
-}
-.social .social-sprite-twitter {
-  background-position: 0 -328px;
-  width: 32px;
-  height: 32px;
 }
 /*
  * Header
@@ -322,12 +295,6 @@ a.gallery:hover img {
 .transitory-arrow:hover {
   opacity: 0.6;
 }
-.transitory-arrow.light {
-  background-image: url(../images/down-arrow-white.png);
-}
-.transitory-arrow.dark {
-  background-image: url(../images/down-arrow-gray.png);
-}
 /*
  * Mobile media query adjustments.
  */
@@ -343,13 +310,54 @@ a.gallery:hover img {
   }
 }
 /*
+ * UI spritemap
+ */
+.ui-sprite {
+  background-image: url(../images/ui/sprite.png);
+  background-repeat: no-repeat;
+}
+.ui-sprite-facebook {
+  background-position: 0 0;
+  width: 32px;
+  height: 32px;
+}
+.ui-sprite-github {
+  background-position: 0 -82px;
+  width: 32px;
+  height: 32px;
+}
+.ui-sprite-google-plus {
+  background-position: 0 -164px;
+  width: 32px;
+  height: 32px;
+}
+.ui-sprite-linkedin {
+  background-position: 0 -246px;
+  width: 32px;
+  height: 32px;
+}
+.ui-sprite-transitory-arrow-dark {
+  background-position: 0 -328px;
+  width: 100px;
+  height: 100px;
+}
+.ui-sprite-transitory-arrow-light {
+  background-position: 0 -478px;
+  width: 100px;
+  height: 100px;
+}
+.ui-sprite-twitter {
+  background-position: 0 -628px;
+  width: 32px;
+  height: 32px;
+}
+/*
  * Career spritemap
  */
 .no-js .career-sprite,
 .career-sprite.lazyloaded {
   background-image: url(../images/career/sprite.png);
   background-repeat: no-repeat;
-  background-position: top left;
 }
 .clients .client-logo {
   height: 0;
@@ -359,77 +367,77 @@ a.gallery:hover img {
 .career-sprite {
   display: inline-block;
 }
-.career-sprite.career-alliance-atlantis {
+.career-sprite.career-sprite-alliance-atlantis {
   background-position: 0 0;
   width: 100px;
   height: 51px;
 }
-.career-sprite.career-california {
+.career-sprite.career-sprite-california {
   background-position: 0 -101px;
   width: 90px;
   height: 60px;
 }
-.career-sprite.career-ea {
+.career-sprite.career-sprite-ea {
   background-position: 0 -211px;
   width: 60px;
   height: 60px;
 }
-.career-sprite.career-fifa {
+.career-sprite.career-sprite-fifa {
   background-position: 0 -321px;
   width: 100px;
   height: 33px;
 }
-.career-sprite.career-government-canada {
+.career-sprite.career-sprite-government-canada {
   background-position: 0 -404px;
   width: 100px;
   height: 31px;
 }
-.career-sprite.career-ibm {
+.career-sprite.career-sprite-ibm {
   background-position: 0 -485px;
   width: 60px;
   height: 60px;
 }
-.career-sprite.career-lawrence-livermore {
+.career-sprite.career-sprite-lawrence-livermore {
   background-position: 0 -595px;
   width: 100px;
   height: 19px;
 }
-.career-sprite.career-nfl {
+.career-sprite.career-sprite-nfl {
   background-position: 0 -664px;
   width: 100px;
   height: 60px;
 }
-.career-sprite.career-nhl {
+.career-sprite.career-sprite-nhl {
   background-position: 0 -774px;
   width: 53px;
   height: 60px;
 }
-.career-sprite.career-nokia {
+.career-sprite.career-sprite-nokia {
   background-position: 0 -884px;
   width: 60px;
   height: 60px;
 }
-.career-sprite.career-toshiba {
+.career-sprite.career-sprite-toshiba {
   background-position: 0 -994px;
   width: 100px;
   height: 15px;
 }
-.career-sprite.career-ufc {
+.career-sprite.career-sprite-ufc {
   background-position: 0 -1059px;
   width: 100px;
   height: 52px;
 }
-.career-sprite.career-virgin-gaming {
+.career-sprite.career-sprite-virgin-gaming {
   background-position: 0 -1161px;
   width: 59px;
   height: 60px;
 }
-.career-sprite.career-vitrium {
+.career-sprite.career-sprite-vitrium {
   background-position: 0 -1271px;
   width: 100px;
   height: 23px;
 }
-.career-sprite.career-zen-point {
+.career-sprite.career-sprite-zen-point {
   background-position: 0 -1344px;
   width: 100px;
   height: 22px;

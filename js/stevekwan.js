@@ -109,7 +109,12 @@ SteveKwan.addTransitoryArrow = function(container, to, color)
 {
   if (color === undefined) color = 'dark';
 
-  var transitoryArrow = $('<a href="'+to+'" class="transitory-arrow '+color+' hidden-phone ir">Scroll down</a>');
+  var transitoryArrow = $
+  (
+    '<a href="'+to+'" ' +
+    'class="transitory-arrow ui-sprite ui-sprite-transitory-arrow-'+color +
+    ' hidden-phone ir">Scroll down</a>'
+  );
 
   transitoryArrow.click
   (
