@@ -221,6 +221,7 @@ a.gallery:hover img {
 }
 #career ul li .career-sprite {
   display: inline-block;
+  vertical-align: middle;
 }
 #career.enter-panel .bg {
   opacity: 1;
@@ -403,7 +404,7 @@ a.gallery:hover img {
 }
 .career-sprite-nfl {
   background-position: 0 -664px;
-  width: 100px;
+  width: 46px;
   height: 60px;
 }
 .career-sprite-nhl {
