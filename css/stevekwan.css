@@ -165,7 +165,6 @@ a.gallery:hover img {
   webkit-backface-visibility: hidden;
 }
 #expertise p {
-  color: #e6e6e6;
   margin-left: 2em;
 }
 /* First time we enter this panel, lazy load the background image */
