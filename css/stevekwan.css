@@ -37,6 +37,7 @@ header,
 section,
 footer {
   position: relative;
+  margin-bottom: 2em;
 }
 /* Image replacement technique from HTML5 Boilerplate:
    https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css */
