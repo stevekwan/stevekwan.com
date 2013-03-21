@@ -154,13 +154,18 @@ a.gallery:hover img {
 #expertise {
   color: #ffffff;
   background-color: #333366;
-  background-position: 200% 10%;
-  background-repeat: no-repeat;
-  -webkit-transition: background-position 750ms ease-in-out 250ms;
-  -moz-transition: background-position 750ms ease-in-out 250ms;
-  -o-transition: background-position 750ms ease-in-out 250ms;
-  -ms-transition: background-position 750ms ease-in-out 250ms;
-  transition: background-position 750ms ease-in-out 250ms;
+}
+#expertise .bg {
+  position: absolute;
+  width: 517px;
+  height: 573px;
+  top: 10%;
+  right: -150%;
+  -webkit-transition: right 750ms ease-in-out 250ms;
+  -moz-transition: right 750ms ease-in-out 250ms;
+  -o-transition: right 750ms ease-in-out 250ms;
+  -ms-transition: right 750ms ease-in-out 250ms;
+  transition: right 750ms ease-in-out 250ms;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   webkit-backface-visibility: hidden;
@@ -168,13 +173,8 @@ a.gallery:hover img {
 #expertise p {
   margin-left: 2em;
 }
-/* First time we enter this panel, lazy load the background image */
-#expertise.enter-panel-first-time {
-  background-image: url(../images/expertise-bg.png);
-}
-/* Animate the background in and out when entering/exiting the panel */
-#expertise.enter-panel {
-  background-position: 90% 10%;
+#expertise.enter-panel .bg {
+  right: 5%;
 }
 /*
  * Career

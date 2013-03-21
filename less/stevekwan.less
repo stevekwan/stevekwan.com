@@ -216,10 +216,17 @@ a.gallery:hover img
 {
   color: @expertise-color;
   background-color: @expertise-bg;
-  background-position: 200% 10%;
-  background-repeat: no-repeat;
-  .transition(~"background-position 750ms ease-in-out 250ms");
-  .ios-hardware-acceleration;
+
+  .bg
+  {
+    position: absolute;
+    width: 517px;
+    height: 573px;
+    top: 10%;
+    right: -150%;
+    .transition(~"right 750ms ease-in-out 250ms");
+    .ios-hardware-acceleration;
+  }
 
   p
   {
@@ -227,16 +234,9 @@ a.gallery:hover img
   }
 }
 
-/* First time we enter this panel, lazy load the background image */
-#expertise.enter-panel-first-time
+#expertise.enter-panel .bg
 {
-  background-image: url(../images/expertise-bg.png);
-}
-
-/* Animate the background in and out when entering/exiting the panel */
-#expertise.enter-panel
-{
-  background-position: 90% 10%;
+  right: 5%;
 }
 
 
