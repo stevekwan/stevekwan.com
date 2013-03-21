@@ -362,10 +362,13 @@ SteveKwan.handleReady = function()
   };
 
   // Lazy load images further down the page
-  SteveKwan.sections.find('img.lazy').lazyload
-  (
-    lazyLoadOptions
-  );
+  SteveKwan.sections
+    .find('img.lazy')
+    .show()
+    .lazyload
+    (
+      lazyLoadOptions
+    );
 
   // Careers images need to be loaded differently because they're background
   // images, and jquery.lazyload does not yet support this.
@@ -373,6 +376,7 @@ SteveKwan.handleReady = function()
     .find('.clients')
     .prepend('<img class="client-logo" src="images/blank.png"/>')
     .find('img.client-logo')
+    .show()
     .lazyload
     (
       $.extend

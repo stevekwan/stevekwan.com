@@ -1,3 +1,12 @@
+/**
+ * This was originally generated from stevekwan.less, in case you're
+ * reading it in any other compressed/generated files.
+ *
+ * Author:
+ *     Steve Kwan
+ *     mail@stevekwan.com
+ *     http://www.stevekwan.com
+ */
 @import "lesshat.less";
 
 /*
@@ -131,6 +140,17 @@ a.gallery:hover img
     .box-shadow(~"0 0 200px rgba(0,0,0,0.7)");
 }
 
+.no-js .lazy
+{
+  /* !important is usually not a good idea, but in this case it's alright.
+   * When the visitor has no JavaScript support, all lazy-loaded image
+   * placeholders should be removed regardless of specificity. */
+  display: none !important;
+}
+
+
+
+
 
 /*
  * Social icons
@@ -157,6 +177,9 @@ a.gallery:hover img
     opacity: 1;
   }
 }
+
+
+
 
 
 /*
@@ -323,7 +346,7 @@ a.gallery:hover img
     padding-top: 65.843949044586%;
   }
 
-  a.gallery .lazy
+  a.gallery img
   {
     position: absolute;
     display: inline-block;
@@ -373,7 +396,7 @@ a.gallery:hover img
     padding-top: 53.75%;
   }
 
-  a.gallery .lazy
+  a.gallery img
   {
     position: absolute;
     display: inline-block;
