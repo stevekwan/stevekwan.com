@@ -1,6 +1,8 @@
 /**
  * The JavaScript powering stevekwan.com.
  *
+ * @class SteveKwan
+ *
  * Author:
  *     Steve Kwan
  *     mail@stevekwan.com
@@ -19,7 +21,7 @@ SteveKwan.currentSection = $("#header");
 
 
 
-/*
+/**
  * Scrolls the page to a specified element.
  *
  * @method scrollTo
@@ -40,7 +42,53 @@ SteveKwan.scrollTo = function(element)
 
 
 
-/*
+/**
+ * Switch to a new panel and trigger events/animations.
+ *
+ * @method switchPanel
+ * @param {Object} panel The new element representing the panel.
+ */
+SteveKwan.switchPanel = function(panel)
+{
+  var newSelection       = $(panel);
+  var newIndex           = SteveKwan.sections.index(newSelection);
+  var oldSelection       = SteveKwan.currentSection;
+  var beforeNewSelection = SteveKwan.sections.slice(0,newIndex);
+  var afterNewSelection  = SteveKwan.sections.slice(newIndex);
+
+  SteveKwan.currentSection = newSelection;
+
+  $(afterNewSelection).find('.panel-inner').each
+  (
+    function(index, element)
+    {
+      // Don't trigger a fade-in animation unless we actually need to
+      if ($(element).hasClass('fade-out'))
+      {
+        $(element).removeClass('fade-out').addClass('fade-in');
+      }
+    }
+  );
+
+  // These animations shouldn't occur on mobile
+  if (!SteveKwan.isMobile())
+  {
+    $(beforeNewSelection)
+      .find('.panel-inner')
+      .removeClass('fade-in')
+      .addClass('fade-out');
+    }
+
+  // Trigger some custom events
+  $(oldSelection).trigger('SteveKwan.exitPanel');
+  $(newSelection).trigger('SteveKwan.enterPanel');
+};
+
+
+
+
+
+/**
  * Event handler fired upon user scrolling.
  *
  * @method handleScroll
@@ -64,36 +112,7 @@ SteveKwan.handleScroll = function()
       // We've scrolled into (or close to) a new section!
       if (SteveKwan.currentSection[0] != element)
       {
-        var oldSelection = SteveKwan.currentSection;
-        var beforeNewSelection = SteveKwan.sections.slice(0,index);
-        var afterNewSelection = SteveKwan.sections.slice(index);
-
-        SteveKwan.currentSection = $(element);
-
-        $(afterNewSelection).find('.panel-inner').each
-        (
-          function(index, element)
-          {
-            // Don't trigger a fade-in animation unless we actually need to
-            if ($(element).hasClass('fade-out'))
-            {
-              $(element).removeClass('fade-out').addClass('fade-in');
-            }
-          }
-        );
-
-        // These animations shouldn't occur on mobile
-        if (!SteveKwan.isMobile())
-        {
-          $(beforeNewSelection)
-            .find('.panel-inner')
-            .removeClass('fade-in')
-            .addClass('fade-out');
-          }
-
-        // Trigger some custom events
-        $(oldSelection).trigger('SteveKwan.exitPanel');
-        $(element).trigger('SteveKwan.enterPanel');
+        SteveKwan.switchPanel(element);
       }
     }
   );
@@ -103,14 +122,14 @@ SteveKwan.handleScroll = function()
 
 
 
-/*
+/**
  * Adds the teaser "down" arrow that informs the user there's more content
  * below.  Clicking that arrow scrolls to that section.
  *
  * @method addTransitoryArrow
  * @param {Object} container Display the arrow at the bottom of this element.
  * @param {Object} to Clicking the arrow scrolls to this element.
- * @param {String} color Color of the transitory arrow.  Either: light|dark
+ * @param {String} [color='dark'] Color of the transitory arrow.  Either: light|dark
  */
 SteveKwan.addTransitoryArrow = function(container, to, color)
 {
@@ -140,7 +159,7 @@ SteveKwan.addTransitoryArrow = function(container, to, color)
 
 
 
-/*
+/**
  * Event handler fired when entering a new panel.  Activated by scrolling.
  *
  * @method handleEnterPanel
@@ -177,7 +196,7 @@ SteveKwan.handleExitPanel = function(e)
 
 
 
-/*
+/**
  * Initialize all colorbox overlays for image galleries.
  *
  * @method initColorBox
@@ -192,7 +211,7 @@ SteveKwan.initColorBox = function()
 
 
 
-/*
+/**
  * Event handler fired when browser is resized into mobile viewport size.
  *
  * @method handleEnterMobile
@@ -206,7 +225,7 @@ SteveKwan.handleEnterMobile = function()
 
 
 
-/*
+/**
  * Event handler fired when browser is resized out of mobile viewport size.
  *
  * @method handleExitMobile
@@ -221,7 +240,7 @@ SteveKwan.handleExitMobile = function()
 
 
 
-/*
+/**
  * Triggered when the jquery.lazyload "appear" function is called for the
  * careers section.
  *
@@ -242,7 +261,7 @@ SteveKwan.handleCareerAppear = function()
 // Holds the jRespond object.
 SteveKwan.jRespond;
 
-/*
+/**
  * Define the various responsive breakpoints.  Events are fired when
  * transitioning across these breakpoints.
  *
@@ -286,7 +305,7 @@ SteveKwan.defineBreakpoints = function()
 
 
 
-/*
+/**
  * Is the user in mobile viewport size or not?
  *
  * @method isMobile
@@ -301,7 +320,7 @@ SteveKwan.isMobile = function()
 
 
 
-/*
+/**
  * Event handler fired when DOM has been parsed.
  *
  * @method handleReady
@@ -353,7 +372,8 @@ SteveKwan.handleReady = function()
   $('#career')
     .find('.clients')
     .prepend('<img class="client-logo" src="images/blank.png"/>')
-    .find('img.client-logo').lazyload
+    .find('img.client-logo')
+    .lazyload
     (
       $.extend
       (
