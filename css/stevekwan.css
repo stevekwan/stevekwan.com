@@ -232,6 +232,9 @@ a.gallery:hover img {
 #portfolio {
   color: #ffffff;
   background-color: #000044;
+  -webkit-box-shadow: 0 0 400px rgba(0,0,0,0.7) inset;
+  -moz-box-shadow: 0 0 400px rgba(0,0,0,0.7) inset;
+  box-shadow: 0 0 400px rgba(0,0,0,0.7) inset;
 }
 #portfolio a.gallery {
   position: relative;
