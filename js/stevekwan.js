@@ -82,9 +82,16 @@ SteveKwan.handleScroll = function()
           }
         );
 
-        if (SteveKwan.isMobile()) return;
+        // These animations shouldn't occur on mobile
+        if (!SteveKwan.isMobile())
+        {
+          $(beforeNewSelection)
+            .find('.panel-inner')
+            .removeClass('fade-in')
+            .addClass('fade-out');
+          }
 
-        $(beforeNewSelection).find('.panel-inner').removeClass('fade-in').addClass('fade-out');
+        // Trigger some custom events
         $(oldSelection).trigger('SteveKwan.exitPanel');
         $(element).trigger('SteveKwan.enterPanel');
       }
