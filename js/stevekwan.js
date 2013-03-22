@@ -356,7 +356,6 @@ SteveKwan.handleReady = function()
 
   var lazyLoadOptions =
   {
-    effect: 'fadeIn',
     threshold: $(window).height(), // Fetch only a page's worth
     skip_invisible: false
   };
