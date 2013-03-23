@@ -324,6 +324,30 @@ a.gallery:hover img {
   color: #ffffff;
   background-color: #000022;
 }
+#footer .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out 500ms;
+  -moz-transition: opacity 1s ease-in-out 500ms;
+  -o-transition: opacity 1s ease-in-out 500ms;
+  -ms-transition: opacity 1s ease-in-out 500ms;
+  transition: opacity 1s ease-in-out 500ms;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  webkit-backface-visibility: hidden;
+}
+#footer .bg img {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+}
+#footer.enter-panel .bg {
+  opacity: 1;
+}
 /*
  * Mobile media query adjustments.
  */
