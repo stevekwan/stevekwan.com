@@ -25,10 +25,17 @@
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
     <title>Steve Kwan, user experience engineer</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico"/>
     <meta name="keywords" content="steve kwan, user experience, ux, vancouver, software engineer, resume"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta property="og:url" content="http://www.stevekwan.com"/>
+    <meta property="og:title" content="Steve Kwan, user experience engineer"/>
+    <meta property="og:description" content="I'm a UX engineer &amp; designer with over 10 years experience building apps and websites of all types."/>
+    <meta property="og:image" content="http://www.stevekwan.com/images/stevekwan.jpg"/>
+    <meta property="og:type" content="website"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="css/stevekwan.min.css" />
   </head>
   <body>
@@ -38,22 +45,22 @@
 
 
     <!-- #header -->
-    <div id="header" class="panel">
+    <div id="header" class="panel" itemscope itemtype="http://schema.org/Person">
       <div class="panel-inner fixed-region fade-in">
         <div class="row-fluid">
           <div class="span6 offset1">
             <header>
               <hgroup>
-                <h1>Hi there!  My name is Steve Kwan.</h1>
-                <h2>User experience engineering is my passion.</h2>
+                <h1>Hi there!  My name is <span itemprop="name"><span itemprop="givenName">Steve</span> <span itemprop="familyName">Kwan</span></span>.</h1>
+                <h2><span itemprop="description">User experience engineering is my passion.</span></h2>
               </hgroup>
-              <p>I'm a UX engineer &amp; designer with over 10 years experience building apps and websites of all types.  My work has garnered recognition from Gartner, the CODiE awards, and other industry leaders.</p>
+              <p>I'm a UX engineer &amp; designer with over 10 years experience building apps and websites of all types.  <span class="awards">My work has garnered recognition from Gartner, the CODiE awards, and other industry leaders.</span></p>
 
               <p>
                 Feel free to <a href="steve_kwan-resume.pdf">download my resume</a>.
               </p>
 
-              <p>I'm currently the Project Lead on the EASPORTS.com team at Electronic Arts.</p>
+              <p>I'm currently the <span itemprop="jobTitle">Project Lead on the EASPORTS.com team</span> at <span itemprop="worksFor">Electronic Arts</span>.</p>
 
               <p>You can be my friend at:</p>
               <ul class="social">
@@ -85,12 +92,12 @@
               </ul>
               <p>
                 Or, you can email me at:<br/>
-                <a href="mailto:mail@stevekwan.com">mail@stevekwan.com</a>
+                <a href="mailto:mail@stevekwan.com" itemprop="email">mail@stevekwan.com</a>
               </p>
             </header>
           </div>
           <div class="span4">
-            <img class="framed hidden-phone" src="images/stevekwan.jpg" alt="Photo of Steve Kwan"/>
+            <img class="framed hidden-phone" src="images/stevekwan.jpg" alt="Photo of Steve Kwan" itemprop="image"/>
           </div>
         </div>
       </div>
